@@ -9,8 +9,10 @@ const Category = ({ name }) => {
 	return (
 		<Route path={ to } children={({ match }) => (
 			<li className={ $class('category', { active: match }) }>
-				<i className="fa fa-times" />
-				<span><Link to={ to }>{ name }</Link></span>
+				<Link to={ to }>
+					<i className="fa fa-times" />
+					<span className="category-name">{ name }</span>
+				</Link>
 			</li>
 		)}/>
 	);

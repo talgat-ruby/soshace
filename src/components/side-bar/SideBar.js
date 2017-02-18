@@ -11,7 +11,7 @@ const testCategories = [{
 }, {
 	name: 'Category 3'
 }, {
-	name: 'Category 4'
+	name: 'ddfdsfpsdfkdsfks[dfk;wfklew;lfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'
 }];
 
 const SideBar = () => {

@@ -9,6 +9,7 @@
 	--color-green: rgb(165, 209, 109);
 	--color-white: rgb(255, 255, 255);
 	--color-body-bg: rgb(243, 243, 243);
+	--color-disabled-button: rgb(188, 184, 194);
 	/* fonts */
 	--font-button: 'Open Sans', sans-serif, Arial;
 }
