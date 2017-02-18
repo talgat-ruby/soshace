@@ -1,0 +1,14 @@
+{
+	"en": {
+		"buttons": {
+			"add_product": "Add product",
+			"add_category": "Add category"
+		}
+	},
+	"ru": {
+		"buttons": {
+			"add_product": "Добавить продукт",
+			"add_category": "Добавить категорию"
+		}
+	}
+}

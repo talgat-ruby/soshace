@@ -1,6 +1,23 @@
+:root {
+	/* colors */
+	--color-violet: rgb(103, 58, 183);
+	--color-red: rgb(240, 82, 131);
+	--color-blue: rgb(108, 174, 224);
+	--color-bg-blue: rgb(52, 132, 179);
+	--color-green: rgb(165, 209, 109);
+	--color-white: rgb(255, 255, 255);
+	--color-body-bg: rgb(243, 243, 243);
+	/* fonts */
+	--font-button: 'Open Sans', sans-serif, Arial;
+}
+
+html {
+	font-size: 62.5%;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  font-size: 62.5%;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background-color: var(--color-body-bg);
 }
