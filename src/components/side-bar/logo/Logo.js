@@ -3,8 +3,9 @@ import './Logo.css';
 
 const Logo = () => {
 	return (
+		<div className="logo">
 			<svg 
-				className="logo" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
+				version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" 
 				x="0px" y="0px" viewBox="0 0 504 504" enableBackground="new 0 0 504 504" xmlSpace="preserve">
 				<g id="ugJgHT_1_">
 					<g>
@@ -24,6 +25,7 @@ const Logo = () => {
 					</g>
 				</g>
 			</svg>
+		</div>
 	);
 }
 
