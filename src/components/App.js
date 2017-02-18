@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import './App.css';
 
 import SideBar from './side-bar/SideBar';
@@ -9,7 +10,7 @@ class App extends Component {
     return (
       <div className="app">
         <SideBar />
-        <Main />        
+        <Route path="/:category" component={ Main }/>        
       </div>
     );
   }

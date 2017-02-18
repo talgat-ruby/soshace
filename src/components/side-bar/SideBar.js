@@ -2,13 +2,29 @@ import React from 'react';
 import './SideBar.css';
 
 import Logo from './logo/Logo';
-import Categories from './categories/Categories';
+import Category from './category/Category';
+
+const testCategories = [{
+	name: 'Category 1'
+}, {
+	name: 'Category 2'
+}, {
+	name: 'Category 3'
+}, {
+	name: 'Category 4'
+}];
 
 const SideBar = () => {
+	const renderCategories = ({ name }) => (
+		<Category name={ name } key={ name } />
+	);
+
 	return (
 		<aside>
 			<Logo />
-			<Categories />
+			<ul className="categories-container">
+				{ testCategories.map(renderCategories) }
+			</ul>
 		</aside>
 	);
 }
