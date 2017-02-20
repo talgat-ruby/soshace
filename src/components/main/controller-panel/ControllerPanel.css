@@ -1,0 +1,8 @@
+.controller-panel {
+	padding: 3rem 5rem; 
+	display: flex;
+}
+
+.controller-panel .button {
+	margin-right: 1rem;
+}

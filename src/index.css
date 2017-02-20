@@ -10,8 +10,16 @@
 	--color-white: rgb(255, 255, 255);
 	--color-body-bg: rgb(243, 243, 243);
 	--color-disabled-button: rgb(188, 184, 194);
+	--color-border-button: rgb(221, 221, 221);
 	/* fonts */
-	--font-button: 'Open Sans', sans-serif, Arial;
+	--font-default: "Helvetica Neue", Helvetica, sans-serif;
+	--font-button: 'Open Sans', sans-serif, Helvetica;
+	/* box-shadow */
+	--button-shadow1-params: 0 0 0.5rem 0 inset;
+	--button-shadow2: rgb(238, 238, 238) 0 0.1rem 0.1rem 0;
+	--button-shadow-green: rgb(164, 207, 108) var(--button-shadow1-params), var(--button-shadow2);
+	--button-shadow-red: rgb(239, 85, 135) var(--button-shadow1-params), var(--button-shadow2);
+	--button-shadow-blue: rgb(105, 170, 220) var(--button-shadow1-params), var(--button-shadow2);
 }
 
 html {
@@ -21,6 +29,6 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
+	font-family: var(--font-default);
 	background-color: var(--color-body-bg);
 }

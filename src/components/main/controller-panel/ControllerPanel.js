@@ -16,9 +16,9 @@ const ControllerPanel = () => {
 
 
 	return (
-		<div>
-			<Button name={ locale('buttons.add_product') } type="" clickHandler={ addProduct }/>	
-			<Button name={ locale('buttons.add_category') } type="" clickHandler={ addCategory }/>
+		<div className="controller-panel">
+			<Button name={ locale('buttons.add_product') } type="green" clickHandler={ addProduct }/>	
+			<Button name={ locale('buttons.add_category') } type="green" clickHandler={ addCategory }/>
 		</div>
 	);
 };
