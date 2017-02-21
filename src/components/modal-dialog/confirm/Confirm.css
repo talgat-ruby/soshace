@@ -1,0 +1,14 @@
+.confirm {
+	width: 48rem;
+	height: 35rem;
+	position: relative;
+	background-color: var(--color-white);
+	display: flex;
+	flex-direction: column;
+}
+
+.confirm-main {
+	padding: 4.4rem 2.4rem 0;
+	flex: 1;
+	font-size: 1.3rem;
+}

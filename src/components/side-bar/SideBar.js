@@ -11,7 +11,7 @@ const testCategories = [{
 }, {
 	name: 'Category 3'
 }, {
-	name: 'ddfdsfpsdfkdsfks[dfk;wfklew;lfkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk'
+	name: 'ddfdsfpsdfkdsfkwedewqdwefegrth yyjtjyjdhre6hejjrk gtgsh5hnw'
 }];
 
 const SideBar = () => {

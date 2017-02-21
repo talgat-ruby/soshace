@@ -9,9 +9,12 @@
 	--color-green: rgb(165, 209, 109);
 	--color-white: rgb(255, 255, 255);
 	--color-body-bg: rgb(243, 243, 243);
+	--color-modal_header-bg: rgb(245, 245, 245);
 	--color-disabled-button: rgb(188, 184, 194);
 	--color-border-button: rgb(221, 221, 221);
 	--color-border-table: rgb(186,186,186);
+	--color-font-grey: rgb(102, 102, 102);
+	--color-font-disable: rgb(204, 204, 204);
 	/* fonts */
 	--font-default: "Helvetica Neue", Helvetica, sans-serif;
 	--font-button: 'Open Sans', sans-serif, Helvetica;

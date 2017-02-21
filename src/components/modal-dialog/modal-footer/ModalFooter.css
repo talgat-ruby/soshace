@@ -1,0 +1,10 @@
+.modal-footer {
+	height: 7rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.modal-footer .button {
+	margin: 0 1.4rem;
+}

@@ -6,7 +6,7 @@ import Button from '../../share/button/Button';
 
 const testData = [{
 	id: 1,
-	name: 'Product1ewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww',
+	name: 'Product1ewwwwwwww',
 	purchasePrice: 2000,
 	sellPrice: 2500
 }, {
@@ -58,7 +58,7 @@ const testData = [{
 
 const Table = () => {
 	const renderRows = ({ id, name, purchasePrice, sellPrice }, index) => (
-		<section className={ $class('row', `row-${index}`) }>
+		<section className={ $class('row', `row-${index}`) } key={ index }>
 			<div className="id-column cell">{ id }</div>
 			<div className="name-column cell">{ name }</div>
 			<div className="purchase-price-column cell">{ purchasePrice }</div>
