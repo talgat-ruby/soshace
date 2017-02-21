@@ -1,0 +1,64 @@
+.table {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem 5rem 3rem 5rem;
+	font-size: 1.4rem;
+}
+
+.table .row {
+	display: flex;
+}
+
+.table-header {
+	border-bottom: 1px solid var(--color-border-table);
+	padding-bottom: 1rem;
+}
+
+.table-main .row {
+	height: 3.8rem;
+}
+
+.table-main .cell {
+	border-right: 1px solid var(--color-border-table);
+	display: flex;
+	align-items: center;
+}
+
+.table .row > div {
+	display: flex;
+	align-items: center;
+}
+
+.id-column {
+	flex: 1;
+	justify-content: center;
+}
+
+.name-column {
+	flex: 5;
+	padding: 0 2rem;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.purchase-price-column, .sell-price-column {
+	flex: 3;
+	justify-content: center;
+	padding: 0 1rem;
+}
+
+.table .controller-part {
+	flex: 6;
+	display: flex;
+}
+
+.table .button {
+	height: 1rem;
+	margin: auto 0 auto 4%;
+	flex: 1;
+}
+
+.table .button:last-child {
+	margin-right: 4%
+}

@@ -11,6 +11,7 @@
 	--color-body-bg: rgb(243, 243, 243);
 	--color-disabled-button: rgb(188, 184, 194);
 	--color-border-button: rgb(221, 221, 221);
+	--color-border-table: rgb(186,186,186);
 	/* fonts */
 	--font-default: "Helvetica Neue", Helvetica, sans-serif;
 	--font-button: 'Open Sans', sans-serif, Helvetica;
