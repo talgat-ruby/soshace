@@ -7,36 +7,33 @@ import { fetchCategories } from '../../redux/actions/categories/categories_actio
 import Logo from './logo/Logo';
 import Category from './category/Category';
 
-const testCategories = [{
-	name: 'Category 1'
-}, {
-	name: 'Category 2'
-}, {
-	name: 'Category 3'
-}, {
-	name: 'Category 4'
-}];
+class SideBar extends PureComponent {
+	componentDidMount = () => {
+		this.props.fetchCategories();
+	}
 
-const SideBar = () => {
-	const renderCategories = ({ name }) => (
-		<Category name={ name } key={ name } />
-	);
+	renderCategories = ({ name, _id }) => (
+		<Category name={ name } key={ _id } />
+	)
 
-	return (
+	render = () => (
 		<aside>
 			<Logo />
 			<ul className="categories-container">
 				{  	[
-						...testCategories,
-						{ name: '' } 
-					].map(renderCategories) }
+						...this.props.categories,
+						{ name: '', _id: 0 } 
+					].map(this.renderCategories) }
 			</ul>
 		</aside>
-	);
+	)
 }
 
 SideBar.propTypes = {
-	fetchCategories: PropTypes.func.isRequired
+	fetchCategories: PropTypes.func.isRequired,
+	categories: PropTypes.array.isRequired
 };
 
-export default connect(null, { fetchCategories })(SideBar); 
+const mapStateToProps = ({ categories }) => ({ categories });
+
+export default connect(mapStateToProps, { fetchCategories })(SideBar); 

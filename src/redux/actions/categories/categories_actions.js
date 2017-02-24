@@ -9,8 +9,8 @@ const fetchCategoriesSuccess = payload => ({
 
 export const fetchCategories = () => (
 	dispatch => (
-		fetchCategoriesService().then(() => {
-			dispatch(fetchCategoriesSuccess())
+		fetchCategoriesService().then(res => {
+			dispatch(fetchCategoriesSuccess(res.data));
 		})
 	)
 );
