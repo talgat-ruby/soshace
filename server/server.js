@@ -1,5 +1,5 @@
 import express from 'express';
-import mongodb from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 
 const app = express();
 const url = 'mongodb://localhost/soshace';
@@ -10,73 +10,79 @@ app.use(function(req, res, next) {
 	next();
 });
 
-mongodb.MongoClient.connect(url, (err, db) => {
-	db.collection('categories').drop();
-	db.collection('categories').insertMany([
-		{ name: 'Category 1' }, 
-		{ name: 'Category 2' }, 
-		{ name: 'Category 3' }, 
-		{ name: 'Category 4' }
-	]);
+MongoClient.connect(url, (err, db) => {
+	// db.collection('categories').drop();
+	// db.collection('categories').insertMany([
+	// 	{ name: 'Category 1' }, 
+	// 	{ name: 'Category 2' }, 
+	// 	{ name: 'Category 3' }, 
+	// 	{ name: 'Category 4' }
+	// ]);
 
-	db.collection('products').drop();
-	db.collection('products').insertMany([{
-		name: 'Hello',
-		purchasePrice: 2000,
-		sellPrice: 2500,
-		category: 'Category 1'
-	},{
-		name: 'Product2',
-		purchasePrice: 2200,
-		sellPrice: 2700,
-		category: 'Category 2'
-	},{
-		name: 'Product3',
-		purchasePrice: 2200,
-		sellPrice: 3000,
-		category: 'Category 1'
-	},{
-		name: 'Product1',
-		purchasePrice: 2200,
-		sellPrice: 3000,
-		category: 'Category 3'
-	},{
-		name: 'Product2',
-		purchasePrice: 2200,
-		sellPrice: 2700,
-		category: 'Category 4'
-	},{
-		name: 'Product3',
-		purchasePrice: 2200,
-		sellPrice: 3000,
-		category: 'Category 1'
-	},{
-		name: 'Product1',
-		purchasePrice: 2200,
-		sellPrice: 3000,
-		category: 'Category 2'
-	},{
-		name: 'Product2',
-		purchasePrice: 2200,
-		sellPrice: 2700,
-		category: 'Category 3'
-	},{
-		name: 'Product3',
-		purchasePrice: 2200,
-		sellPrice: 3000,
-		category: 'Category 4'
-	},{
-		name: 'Product1',
-		purchasePrice: 2200,
-		sellPrice: 3000,
-		category: 'Category 3'
-	}]);
+	// db.collection('products').drop();
+	// db.collection('products').insertMany([{
+	// 	name: 'Hello',
+	// 	purchasePrice: 2000,
+	// 	sellPrice: 2500,
+	// 	category: 'Category 1'
+	// },{
+	// 	name: 'Product2',
+	// 	purchasePrice: 2200,
+	// 	sellPrice: 2700,
+	// 	category: 'Category 2'
+	// },{
+	// 	name: 'Product3',
+	// 	purchasePrice: 2200,
+	// 	sellPrice: 3000,
+	// 	category: 'Category 1'
+	// },{
+	// 	name: 'Product1',
+	// 	purchasePrice: 2200,
+	// 	sellPrice: 3000,
+	// 	category: 'Category 3'
+	// },{
+	// 	name: 'Product2',
+	// 	purchasePrice: 2200,
+	// 	sellPrice: 2700,
+	// 	category: 'Category 4'
+	// },{
+	// 	name: 'Product3',
+	// 	purchasePrice: 2200,
+	// 	sellPrice: 3000,
+	// 	category: 'Category 1'
+	// },{
+	// 	name: 'Product1',
+	// 	purchasePrice: 2200,
+	// 	sellPrice: 3000,
+	// 	category: 'Category 2'
+	// },{
+	// 	name: 'Product2',
+	// 	purchasePrice: 2200,
+	// 	sellPrice: 2700,
+	// 	category: 'Category 3'
+	// },{
+	// 	name: 'Product3',
+	// 	purchasePrice: 2200,
+	// 	sellPrice: 3000,
+	// 	category: 'Category 4'
+	// },{
+	// 	name: 'Product1',
+	// 	purchasePrice: 2200,
+	// 	sellPrice: 3000,
+	// 	category: 'Category 3'
+	// }]);
 
 	app.get('/api/categories', (req, res) => {
 		db.collection('categories').find({}).toArray((err, categories) => {
 			res.json(categories);
 		});
 	});
+
+	app.delete('/api/categories', (req, res) => {
+		db.collection('categories').deleteOne({ '_id': ObjectId(req.query.id) }, (err, result) => {
+			res.send(result);
+		});
+	})
 
 	app.get('/api/products', (req, res) => {
 		db.collection('products').find({}).toArray((err, products) => {

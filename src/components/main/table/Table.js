@@ -1,29 +1,19 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import $class from 'classnames';
 import './Table.css';
 
 import { locale } from '../../../utils/';
 import { fetchProducts } from '../../../redux/actions/products/products_actions';
 
-import Button from '../../share/button/Button';
+import TableRow from './table-row/TableRow';
 
 class Table extends PureComponent {
 	componentDidMount = () => {
 		this.props.fetchProducts();
 	}
 
-	renderRows = ({ _id, name, purchasePrice, sellPrice }, index) => (
-		<section className={ $class('row', `row-${index}`) } key={ _id }>
-			<div className="id-column cell">{ index + 1 }</div>
-			<div className="name-column cell">{ name }</div>
-			<div className="purchase-price-column cell">{ purchasePrice }</div>
-			<div className="sell-price-column cell">{ sellPrice }</div>
-			<div className="controller-part">
-				<Button name={locale('buttons.delete')} type="red"/>
-				<Button name={locale('buttons.modify')} type="blue"/>
-			</div>
-		</section>
+	renderRows = (product, index) => (
+		<TableRow { ...product } index={ index } key={ product._id } />
 	)
 
 	render = () => (
@@ -45,7 +35,8 @@ class Table extends PureComponent {
 }
 
 Table.propTypes = {
-	fetchProducts: PropTypes.func.isRequired
+	fetchProducts: PropTypes.func.isRequired,
+	products: PropTypes.array.isRequired
 }
 
 const mapStateToProps = ({ products }) => ({ products });

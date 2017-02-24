@@ -1,4 +1,4 @@
-import { FETCH_CATEGORIES_SUCCESS } from '../constants/categories_constants';
+import { FETCH_CATEGORIES_SUCCESS, REMOVE_CATEGORY_SUCCESS } from '../constants/categories_constants';
 
 export default function categories(state=[], action) {
 	switch(action.type) {

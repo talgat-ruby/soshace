@@ -4,7 +4,9 @@
       "add_category": "Add category",
       "add_product": "Add product",
       "delete": "Delete",
-      "modify": "Modify"
+      "modify": "Modify",
+      "yes": "Yes",
+      "no": "No"
     },
     "categories": {
       "default": "No name"
@@ -14,6 +16,12 @@
       "product's_name": "Product's name",
       "purchase_price": "Purchase price",
       "sell_price": "Sell price"
+    },
+    "confirm": {
+      "remove_category": {
+        "header": "Do you want to remove category?",
+        "message": "All products in this category will be transfered to \"No name\""
+      }
     }
   },
   "ru": {
@@ -21,7 +29,9 @@
       "add_category": "Добавить категорию",
       "add_product": "Добавить продукт",
       "delete": "Удалить",
-      "modify": "Изменить"
+      "modify": "Изменить",
+      "yes": "Да",
+      "no": "Нет"
     },
     "categories": {
       "default": "Без имени"
@@ -31,6 +41,12 @@
       "product's_name": "Наименование товара",
       "purchase_price": "Цена закупки",
       "sell_price": "Цена продажи"
+    },
+    "confirm": {
+      "remove_category": {
+        "header": "Хотите удалить категорию?",
+        "message": "Все товары в этой категории будут помечены \"Без имени\""
+      }
     }
   }
 }

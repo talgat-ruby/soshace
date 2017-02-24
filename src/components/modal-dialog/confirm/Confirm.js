@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import './Confirm.css';
 
 import ModalHeader from '../modal-header/ModalHeader';
 import ModalFooter from '../modal-footer/ModalFooter';
 
-const Confirm = (props) => {
+const Confirm = ({ header, message, buttons, actionHandler }) => {
+	const clickHandler = action => {
+		actionHandler(action)
+	} 
+
 	return (
 		<div className="confirm">
-			<ModalHeader />
+			<ModalHeader text={header} clickHandler={clickHandler}/>
 			<main className="confirm-main">
-				<p>You have not saved changes. Not saved changes will be lost. Do you want to proceed?</p>
+				<p>{message}</p>
 			</main>
-			<ModalFooter />
+			<ModalFooter buttons={buttons} clickHandler={clickHandler}/>
 		</div>
 	);
+}
+
+Confirm.propTypes = {
+	header: PropTypes.string.isRequired,
+	message: PropTypes.string.isRequired,
+	actionHandler: PropTypes.func.isRequired,
+	buttons: PropTypes.arrayOf(PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		action: PropTypes.string.isRequired,
+		type: PropTypes.string.isRequired
+	}).isRequired).isRequired
 }
 
 export default Confirm;
