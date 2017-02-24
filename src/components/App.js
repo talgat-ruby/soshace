@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 
 import ModalDialog from './modal-dialog/ModalDialog';
@@ -12,7 +12,10 @@ class App extends Component {
       <div className="app">
       	<ModalDialog />
         <SideBar />
-        <Route path="/:category" component={ Main }/>       
+        <Switch>
+          <Route exact path="/" component={ Main }/>
+          <Route path="/:category" component={ Main }/> 
+        </Switch>
       </div>
     );
   }

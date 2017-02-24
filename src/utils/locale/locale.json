@@ -1,14 +1,36 @@
 {
-	"en": {
-		"buttons": {
-			"add_product": "Add product",
-			"add_category": "Add category"
-		}
-	},
-	"ru": {
-		"buttons": {
-			"add_product": "Добавить продукт",
-			"add_category": "Добавить категорию"
-		}
-	}
+  "en": {
+    "buttons": {
+      "add_category": "Add category",
+      "add_product": "Add product",
+      "delete": "Delete",
+      "modify": "Modify"
+    },
+    "categories": {
+      "default": "No name"
+    },
+    "table": {
+      "id": "ID",
+      "product's_name": "Product's name",
+      "purchase_price": "Purchase price",
+      "sell_price": "Sell price"
+    }
+  },
+  "ru": {
+    "buttons": {
+      "add_category": "Добавить категорию",
+      "add_product": "Добавить продукт",
+      "delete": "Удалить",
+      "modify": "Изменить"
+    },
+    "categories": {
+      "default": "Без имени"
+    },
+    "table": {
+      "id": "ID",
+      "product's_name": "Наименование товара",
+      "purchase_price": "Цена закупки",
+      "sell_price": "Цена продажи"
+    }
+  }
 }
