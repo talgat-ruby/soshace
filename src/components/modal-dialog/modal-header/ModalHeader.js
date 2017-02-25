@@ -5,7 +5,7 @@ const ModalHeader = ({ text, clickHandler }) => {
 	return (
 		<header className="modal-header">
 			<span>{text}</span>
-			<i className="fa fa-times" onClick={clickHandler}/>
+			<i className="fa fa-times" onClick={() => clickHandler('close')}/>
 		</header>
 	);
 }

@@ -5,17 +5,13 @@ import ModalHeader from '../modal-header/ModalHeader';
 import ModalFooter from '../modal-footer/ModalFooter';
 
 const Confirm = ({ header, message, buttons, actionHandler }) => {
-	const clickHandler = action => {
-		actionHandler(action)
-	} 
-
 	return (
 		<div className="confirm">
-			<ModalHeader text={header} clickHandler={clickHandler}/>
+			<ModalHeader text={header} clickHandler={actionHandler}/>
 			<main className="confirm-main">
 				<p>{message}</p>
 			</main>
-			<ModalFooter buttons={buttons} clickHandler={clickHandler}/>
+			<ModalFooter buttons={buttons} clickHandler={actionHandler}/>
 		</div>
 	);
 }

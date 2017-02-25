@@ -1,5 +1,5 @@
 import { fetchCategoriesService, removeCategoryService } from './categories_services';
-import { FETCH_CATEGORIES_SUCCESS, REMOVE_CATEGORY_SUCCESS } from '../../constants/categories_constants';
+import { FETCH_CATEGORIES_SUCCESS} from '../../constants/categories_constants';
 
 
 const fetchCategoriesSuccess = payload => ({
@@ -14,10 +14,6 @@ export const fetchCategories = () => (
 		})
 	)
 );
-
-const removeCategorySuccess = () => ({
-	type: REMOVE_CATEGORY_SUCCESS
-});
 
 export const removeCategory = id => (
 	dispatch => (

@@ -20,8 +20,8 @@ class SideBar extends PureComponent {
 			header,
 			message,
 			buttons: [
-				{ name: locale('buttons.no'), action: 'no', type: 'red' },
-				{ name: locale('buttons.yes'), action: 'yes', type: 'green' } 
+				{ name: locale('buttons.yes'), action: 'yes', type: 'red' },
+				{ name: locale('buttons.no'), action: 'no', type: 'green' }
 			]
 		}).then(action => {
 			if(action === 'yes') {

@@ -4,8 +4,8 @@ import './Button.css';
 
 const Button = ({ name, type, clickHandler }) => {
 	return (
-		<a className={ $class('button', type) } onClick={ clickHandler }>
-			{ name }
+		<a className={$class('button', type)} onClick={clickHandler}>
+			{name}
 		</a>
 	);
 };

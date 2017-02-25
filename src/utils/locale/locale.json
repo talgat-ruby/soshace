@@ -5,23 +5,27 @@
       "add_product": "Add product",
       "delete": "Delete",
       "modify": "Modify",
-      "yes": "Yes",
-      "no": "No"
+      "no": "No",
+      "yes": "Yes"
     },
     "categories": {
       "default": "No name"
+    },
+    "confirm": {
+      "remove_category": {
+        "header": "Do you want to remove category?",
+        "message": "All products in this category will be transfered to \"No name\""
+      },
+      "remove_product": {
+        "header": "Remove product?",
+        "message": "You want to remove product: "
+      }
     },
     "table": {
       "id": "ID",
       "product's_name": "Product's name",
       "purchase_price": "Purchase price",
       "sell_price": "Sell price"
-    },
-    "confirm": {
-      "remove_category": {
-        "header": "Do you want to remove category?",
-        "message": "All products in this category will be transfered to \"No name\""
-      }
     }
   },
   "ru": {
@@ -30,23 +34,27 @@
       "add_product": "Добавить продукт",
       "delete": "Удалить",
       "modify": "Изменить",
-      "yes": "Да",
-      "no": "Нет"
+      "no": "Нет",
+      "yes": "Да"
     },
     "categories": {
       "default": "Без имени"
+    },
+    "confirm": {
+      "remove_category": {
+        "header": "Хотите удалить категорию?",
+        "message": "Все товары в этой категории будут помечены \"Без имени\""
+      },
+      "remove_product": {
+        "header": "Удалить товар?",
+        "message": "Вы хотите удалить товар: "
+      }
     },
     "table": {
       "id": "ID",
       "product's_name": "Наименование товара",
       "purchase_price": "Цена закупки",
       "sell_price": "Цена продажи"
-    },
-    "confirm": {
-      "remove_category": {
-        "header": "Хотите удалить категорию?",
-        "message": "Все товары в этой категории будут помечены \"Без имени\""
-      }
     }
   }
 }

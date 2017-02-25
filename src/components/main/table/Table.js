@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import './Table.css';
 
 import { locale } from '../../../utils/';
-import { fetchProducts } from '../../../redux/actions/products/products_actions';
+import { fetchProducts, removeProduct } from '../../../redux/actions/products/products_actions';
+import { openConfirm } from '../../../redux/actions/modal-dialog/modal-dialog_actions';
 
 import TableRow from './table-row/TableRow';
 
@@ -12,8 +13,28 @@ class Table extends PureComponent {
 		this.props.fetchProducts();
 	}
 
+	removeProduct = (id, name) => {
+		const { header, message } = locale('confirm.remove_product');
+		this.props.openConfirm({
+			header,
+			message: message + name,
+			buttons: [
+				{ name: locale('buttons.yes'), action: 'yes', type: 'red' }, 
+				{ name: locale('buttons.no'), action: 'no', type: 'green' }
+			]
+		}).then(action => {
+			if(action === 'yes') {
+				this.props.removeProduct(id);
+			}
+		});
+	}
+
 	renderRows = (product, index) => (
-		<TableRow { ...product } index={ index } key={ product._id } />
+		<TableRow 
+			{ ...product } 
+			index={ index }
+			removeProduct={this.removeProduct}
+			key={ product._id } />
 	)
 
 	render = () => (
@@ -36,9 +57,17 @@ class Table extends PureComponent {
 
 Table.propTypes = {
 	fetchProducts: PropTypes.func.isRequired,
+	removeProduct: PropTypes.func.isRequired,
+	openConfirm: PropTypes.func.isRequired,
 	products: PropTypes.array.isRequired
 }
 
 const mapStateToProps = ({ products }) => ({ products });
 
-export default connect(mapStateToProps, { fetchProducts })(Table);
+const mapDispatchToProps = {
+	fetchProducts,
+	removeProduct,
+	openConfirm
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);

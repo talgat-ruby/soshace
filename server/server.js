@@ -90,6 +90,12 @@ MongoClient.connect(url, (err, db) => {
 		});
 	});
 
+	app.delete('/api/products', (req, res) => {
+		db.collection('products').deleteOne({ '_id': ObjectId(req.query.id) }, (err, result) => {
+			res.send(result);
+		});
+	})
+
 	app.listen(3001, () => console.log('Server is running on localhost:3001'));
 });
 
