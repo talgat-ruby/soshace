@@ -6,12 +6,19 @@
       "delete": "Delete",
       "modify": "Modify",
       "no": "No",
+      "save": "Save",
       "yes": "Yes"
     },
     "categories": {
       "default": "No name"
     },
-    "confirm": {
+    "modal": {
+      "add_category": {
+        "err_duplication": "Category with this name already exists",
+        "err_empty": "Name should not empty",
+        "header": "Add category",
+        "placeholder": "Name"
+      },
       "remove_category": {
         "header": "Do you want to remove category?",
         "message": "All products in this category will be transfered to \"No name\""
@@ -35,12 +42,19 @@
       "delete": "Удалить",
       "modify": "Изменить",
       "no": "Нет",
+      "save": "Сохранить",
       "yes": "Да"
     },
     "categories": {
       "default": "Без имени"
     },
-    "confirm": {
+    "modal": {
+      "add_category": {
+        "err_duplication": "Данная категория уже существует",
+        "err_empty": "Название не должно быть пустым",
+        "header": "Добавить категорию",
+        "placeholder": "Название"
+      },
       "remove_category": {
         "header": "Хотите удалить категорию?",
         "message": "Все товары в этой категории будут помечены \"Без имени\""

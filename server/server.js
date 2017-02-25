@@ -3,19 +3,20 @@ import { MongoClient, ObjectId } from 'mongodb';
 
 const app = express();
 const url = 'mongodb://localhost/soshace';
+const PORT = 3001;
 
-app.use(function(req, res, next) {
-	res.header("Access-Control-Allow-Origin", "*");
-	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
 	next();
 });
 
-MongoClient.connect(url, (err, db) => {
+MongoClient.connect(url, (error, db) => {
 	// db.collection('categories').drop();
 	// db.collection('categories').insertMany([
-	// 	{ name: 'Category 1' }, 
-	// 	{ name: 'Category 2' }, 
-	// 	{ name: 'Category 3' }, 
+	// 	{ name: 'Category 1' },
+	// 	{ name: 'Category 2' },
+	// 	{ name: 'Category 3' },
 	// 	{ name: 'Category 4' }
 	// ]);
 
@@ -82,7 +83,13 @@ MongoClient.connect(url, (err, db) => {
 		db.collection('categories').deleteOne({ '_id': ObjectId(req.query.id) }, (err, result) => {
 			res.send(result);
 		});
-	})
+	});
+
+	app.post('/api/categories', (req, res) => {
+		db.collection('categories').insertOne({ name: req.query.name }, (err, result) => {
+			res.send(result);
+		});
+	});
 
 	app.get('/api/products', (req, res) => {
 		db.collection('products').find({}).toArray((err, products) => {
@@ -94,8 +101,8 @@ MongoClient.connect(url, (err, db) => {
 		db.collection('products').deleteOne({ '_id': ObjectId(req.query.id) }, (err, result) => {
 			res.send(result);
 		});
-	})
+	});
 
-	app.listen(3001, () => console.log('Server is running on localhost:3001'));
+	app.listen(PORT, () => console.log(`Server is running on localhost:${PORT}`));
 });
 

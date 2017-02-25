@@ -4,7 +4,8 @@ import './Table.css';
 
 import { locale } from '../../../utils/';
 import { fetchProducts, removeProduct } from '../../../redux/actions/products/products_actions';
-import { openConfirm } from '../../../redux/actions/modal-dialog/modal-dialog_actions';
+import { openModal } from '../../../redux/actions/modal-dialog/modal-dialog_actions';
+import { TEMPLATES } from '../../../environment/modal-dialog_environment';
 
 import TableRow from './table-row/TableRow';
 
@@ -14,12 +15,13 @@ class Table extends PureComponent {
 	}
 
 	removeProduct = (id, name) => {
-		const { header, message } = locale('confirm.remove_product');
-		this.props.openConfirm({
+		const { header, message } = locale('modal.remove_product');
+		this.props.openModal({
+			template: TEMPLATES.CONFIRM,
 			header,
 			message: message + name,
 			buttons: [
-				{ name: locale('buttons.yes'), action: 'yes', type: 'red' }, 
+				{ name: locale('buttons.yes'), action: 'yes', type: 'red' },
 				{ name: locale('buttons.no'), action: 'no', type: 'green' }
 			]
 		}).then(action => {
@@ -30,11 +32,11 @@ class Table extends PureComponent {
 	}
 
 	renderRows = (product, index) => (
-		<TableRow 
-			{ ...product } 
-			index={ index }
+		<TableRow
+			{...product}
+			index={index}
 			removeProduct={this.removeProduct}
-			key={ product._id } />
+			key={product._id} />
 	)
 
 	render = () => (
@@ -58,16 +60,16 @@ class Table extends PureComponent {
 Table.propTypes = {
 	fetchProducts: PropTypes.func.isRequired,
 	removeProduct: PropTypes.func.isRequired,
-	openConfirm: PropTypes.func.isRequired,
+	openModal: PropTypes.func.isRequired,
 	products: PropTypes.array.isRequired
-}
+};
 
 const mapStateToProps = ({ products }) => ({ products });
 
 const mapDispatchToProps = {
 	fetchProducts,
 	removeProduct,
-	openConfirm
+	openModal
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Table);

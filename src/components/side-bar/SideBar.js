@@ -4,7 +4,8 @@ import './SideBar.css';
 
 import { locale } from '../../utils';
 import { fetchCategories, removeCategory } from '../../redux/actions/categories/categories_actions';
-import { openConfirm } from '../../redux/actions/modal-dialog/modal-dialog_actions';
+import { openModal } from '../../redux/actions/modal-dialog/modal-dialog_actions';
+import { TEMPLATES } from '../../environment/modal-dialog_environment';
 
 import Logo from './logo/Logo';
 import Category from './category/Category';
@@ -15,8 +16,9 @@ class SideBar extends PureComponent {
 	}
 
 	removeCategory = ({ target: { dataset } }) => {
-		const { message, header } = locale('confirm.remove_category');
-		this.props.openConfirm({
+		const { message, header } = locale('modal.remove_category');
+		this.props.openModal({
+			template: TEMPLATES.CONFIRM,
 			header,
 			message,
 			buttons: [
@@ -31,11 +33,11 @@ class SideBar extends PureComponent {
 	}
 
 	renderCategories = ({ name, _id }) => (
-		<Category 
-			name={ name }
+		<Category
+			name={name}
 			id={_id}
-			removeCategory={ this.removeCategory } 
-			key={ _id } />
+			removeCategory={this.removeCategory}
+			key={_id} />
 	)
 
 	render = () => (
@@ -44,7 +46,7 @@ class SideBar extends PureComponent {
 			<ul className="categories-container">
 				{  	[
 						...this.props.categories,
-						{ name: '', _id: 0 } 
+						{ name: '', _id: 0 }
 					].map(this.renderCategories) }
 			</ul>
 		</aside>
@@ -53,7 +55,8 @@ class SideBar extends PureComponent {
 
 SideBar.propTypes = {
 	fetchCategories: PropTypes.func.isRequired,
-	openConfirm: PropTypes.func.isRequired,
+	removeCategory: PropTypes.func.isRequired,
+	openModal: PropTypes.func.isRequired,
 	categories: PropTypes.array.isRequired
 };
 
@@ -62,9 +65,9 @@ const mapStateToProps = ({ categories }) => ({ categories });
 const mapDispatchToProps = {
 	fetchCategories,
 	removeCategory,
-	openConfirm
+	openModal
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideBar); 
+export default connect(mapStateToProps, mapDispatchToProps)(SideBar);
 
 

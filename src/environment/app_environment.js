@@ -5,3 +5,7 @@ export const BUTTON_TYPES = {
 	BLUE: 'blue',
 	RED: 'red'
 };
+
+export const BUTTON_KEYS = {
+	'ENTER': 13
+};

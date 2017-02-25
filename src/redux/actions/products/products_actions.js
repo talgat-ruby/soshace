@@ -4,7 +4,7 @@ import { FETCH_PRODUCTS_SUCCESS } from '../../constants/products_constants';
 const fetchProductsSuccess = payload => ({
 	type: FETCH_PRODUCTS_SUCCESS,
 	payload
-}); 
+});
 
 export const fetchProducts = () => (
 	dispatch => (
@@ -16,8 +16,8 @@ export const fetchProducts = () => (
 
 export const removeProduct = id => (
 	dispatch => (
-		removeProductService(id).then(res => {
-			dispatch(fetchProducts())
+		removeProductService(id).then(() => {
+			dispatch(fetchProducts());
 		})
 	)
 );

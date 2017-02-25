@@ -1,4 +1,4 @@
-import { fetchCategoriesService, removeCategoryService } from './categories_services';
+import { fetchCategoriesService, removeCategoryService, newCategoryService } from './categories_services';
 import { FETCH_CATEGORIES_SUCCESS} from '../../constants/categories_constants';
 
 
@@ -17,7 +17,15 @@ export const fetchCategories = () => (
 
 export const removeCategory = id => (
 	dispatch => (
-		removeCategoryService(id).then(res => {
+		removeCategoryService(id).then(() => {
+			dispatch(fetchCategories());
+		})
+	)
+);
+
+export const newCategory = name => (
+	dispatch => (
+		newCategoryService(name).then(() => {
 			dispatch(fetchCategories());
 		})
 	)
