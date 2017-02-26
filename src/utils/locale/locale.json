@@ -15,7 +15,7 @@
     "modal": {
       "add_category": {
         "err_duplication": "Category with this name already exists",
-        "err_empty": "Name should not empty",
+        "err_empty": "Name should not be empty",
         "header": "Add category",
         "placeholder": "Name"
       },
@@ -26,6 +26,14 @@
       "remove_product": {
         "header": "Remove product?",
         "message": "You want to remove product: "
+      },
+      "add-modify_product": {
+        "header": "Add product",
+        "name_placeholder": "Name",
+        "purchase_placeholder": "Purchase price",
+        "sell_placeholder": "Sell price",
+        "err_empty": "should not be empty",
+        "err_duplication": "Product with this name already exists"
       }
     },
     "table": {
@@ -62,6 +70,14 @@
       "remove_product": {
         "header": "Удалить товар?",
         "message": "Вы хотите удалить товар: "
+      },
+      "add-modify_product": {
+        "header": "Добавить товар",
+        "name_placeholder": "Наименование",
+        "purchase_placeholder": "Закупочная стоимость",
+        "sell_placeholder": "Розничная цена",
+        "err_empty": "не должно быть пустым",
+        "err_duplication": "Данный продукт уже существует"
       }
     },
     "table": {

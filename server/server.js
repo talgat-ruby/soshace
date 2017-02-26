@@ -1,7 +1,10 @@
 import express from 'express';
+import bodyParser from 'body-parser';
+import multer from 'multer';
 import { MongoClient, ObjectId } from 'mongodb';
 
 const app = express();
+const upload = multer();
 const url = 'mongodb://localhost/soshace';
 const PORT = 3001;
 
@@ -11,14 +14,17 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 MongoClient.connect(url, (error, db) => {
 	// db.collection('categories').drop();
-	// db.collection('categories').insertMany([
-	// 	{ name: 'Category 1' },
-	// 	{ name: 'Category 2' },
-	// 	{ name: 'Category 3' },
-	// 	{ name: 'Category 4' }
-	// ]);
+	db.collection('categories').insertMany([
+		{ name: 'Category 1' },
+		{ name: 'Category 2' },
+		{ name: 'Category 3' },
+		{ name: 'Category 4' }
+	]);
 
 	// db.collection('products').drop();
 	// db.collection('products').insertMany([{
@@ -80,8 +86,11 @@ MongoClient.connect(url, (error, db) => {
 	});
 
 	app.delete('/api/categories', (req, res) => {
-		db.collection('categories').deleteOne({ '_id': ObjectId(req.query.id) }, (err, result) => {
-			res.send(result);
+		const categoryId = ObjectId(req.query.id);
+		db.collection('categories').deleteOne({ '_id': categoryId }, (err, result) => {
+			db.collection('products').updateMany({ 'category': categoryId }, {$set: { 'category': '' }}, () => {
+				res.send(result);
+			});
 		});
 	});
 
@@ -99,6 +108,32 @@ MongoClient.connect(url, (error, db) => {
 
 	app.delete('/api/products', (req, res) => {
 		db.collection('products').deleteOne({ '_id': ObjectId(req.query.id) }, (err, result) => {
+			res.send(result);
+		});
+	});
+
+	app.post('/api/products', upload.array(), (req, res) => {
+		const { category, name, purchasePrice, sellPrice } = req.body;
+		const insertData = {
+			category: category && ObjectId(category),
+			name,
+			purchasePrice: Number(purchasePrice),
+			sellPrice: Number(sellPrice)
+		};
+		db.collection('products').insertOne(insertData, (err, result) => {
+			res.send(result);
+		});
+	});
+
+	app.put('/api/products', upload.array(), (req, res) => {
+		const { _id, category, name, purchasePrice, sellPrice } = req.body;
+		const replaceData = {
+			category: category && ObjectId(category),
+			name,
+			purchasePrice: Number(purchasePrice),
+			sellPrice: Number(sellPrice)
+		};
+		db.collection('products').replaceOne({ '_id': ObjectId(_id) }, replaceData, (err, result) => {
 			res.send(result);
 		});
 	});

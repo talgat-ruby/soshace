@@ -4,13 +4,13 @@ import './Main.css';
 import ControllerPanel from './controller-panel/ControllerPanel';
 import Table from './table/Table';
 
-const Main = () => {
+const Main = ({ match: { params } }) => {
 	return (
 		<main>
 			<ControllerPanel />
-			<Table />
+			<Table filterParams={params}/>
 		</main>
 	);
-}
+};
 
 export default Main;

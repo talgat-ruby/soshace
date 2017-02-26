@@ -28,7 +28,7 @@ export const openModal = (params, validator) => (
 						if(errMessages) {
 							dispatch(showModalErrors(errMessages));
 						} else {
-							res(data);
+							res({ action, data });
 							dispatch(closeModalDialog());
 						}
 					}

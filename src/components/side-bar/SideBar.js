@@ -1,4 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './SideBar.css';
 
@@ -11,6 +12,10 @@ import Logo from './logo/Logo';
 import Category from './category/Category';
 
 class SideBar extends PureComponent {
+	state = {
+		redirect: false
+	}
+
 	componentDidMount = () => {
 		this.props.fetchCategories();
 	}
@@ -28,6 +33,7 @@ class SideBar extends PureComponent {
 		}).then(action => {
 			if(action === 'yes') {
 				this.props.removeCategory(dataset.id);
+				this.setState({ redirect: true });
 			}
 		});
 	}
@@ -41,15 +47,16 @@ class SideBar extends PureComponent {
 	)
 
 	render = () => (
-		<aside>
-			<Logo />
-			<ul className="categories-container">
-				{  	[
-						...this.props.categories,
-						{ name: '', _id: 0 }
-					].map(this.renderCategories) }
-			</ul>
-		</aside>
+			this.state.redirect ? <Redirect push to="/"/>
+			: (<aside>
+				<Logo />
+				<ul className="categories-container">
+					{  	[
+							...this.props.categories,
+							{ name: '', _id: '' }
+						].map(this.renderCategories) }
+				</ul>
+			</aside>)
 	)
 }
 

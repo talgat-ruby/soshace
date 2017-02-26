@@ -7,9 +7,9 @@ import { BUTTON_TYPES } from '../../../../environment/app_environment';
 
 import Button from '../../../share/button/Button';
 
-const TableRow = ({ _id, name, purchasePrice, sellPrice, index, removeProduct }) => {
+const TableRow = ({ _id, name, purchasePrice, sellPrice, index, removeProduct, modifyProduct }) => {
 	return (
-		<section className={ $class('row', `row-${index}`) }>
+		<section className={$class('row', `row-${index}`)}>
 			<div className="id-column cell">{ index + 1 }</div>
 			<div className="name-column cell">{ name }</div>
 			<div className="purchase-price-column cell">{ purchasePrice }</div>
@@ -19,9 +19,10 @@ const TableRow = ({ _id, name, purchasePrice, sellPrice, index, removeProduct })
 					name={locale('buttons.delete')}
 					type={BUTTON_TYPES.RED}
 					clickHandler={() => removeProduct(_id, name)}/>
-				<Button 
+				<Button
 					name={locale('buttons.modify')}
-					type={BUTTON_TYPES.BLUE} />
+					type={BUTTON_TYPES.BLUE}
+					clickHandler={() => modifyProduct(_id)}/>
 			</div>
 		</section>
 	);
@@ -33,7 +34,8 @@ TableRow.propTypes = {
 	purchasePrice: PropTypes.number.isRequired,
 	sellPrice: PropTypes.number.isRequired,
 	index: PropTypes.number.isRequired,
-	removeProduct: PropTypes.func.isRequired
-}
+	removeProduct: PropTypes.func.isRequired,
+	modifyProduct: PropTypes.func.isRequired
+};
 
 export default TableRow;

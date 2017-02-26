@@ -1,4 +1,9 @@
-import { fetchProductsService, removeProductService } from './products_services';
+import {
+	fetchProductsService,
+	removeProductService,
+	newProductService,
+	modifyProductService
+} from './products_services';
 import { FETCH_PRODUCTS_SUCCESS } from '../../constants/products_constants';
 
 const fetchProductsSuccess = payload => ({
@@ -17,6 +22,22 @@ export const fetchProducts = () => (
 export const removeProduct = id => (
 	dispatch => (
 		removeProductService(id).then(() => {
+			dispatch(fetchProducts());
+		})
+	)
+);
+
+export const newProduct = data => (
+	dispatch => (
+		newProductService(data).then(() => {
+			dispatch(fetchProducts());
+		})
+	)
+);
+
+export const modifyProduct = data => (
+	dispatch => (
+		modifyProductService(data).then(() => {
 			dispatch(fetchProducts());
 		})
 	)

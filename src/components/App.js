@@ -10,11 +10,11 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-      	<ModalDialog />
+      <ModalDialog />
         <SideBar />
         <Switch>
-          <Route exact path="/" component={ Main }/>
-          <Route path="/:category" component={ Main }/> 
+          <Route exact path="/" component={Main}/>
+          <Route path="/:category" component={Main}/>
         </Switch>
       </div>
     );

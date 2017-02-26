@@ -7,6 +7,7 @@ import { TEMPLATES } from '../../environment/modal-dialog_environment';
 
 import Confirm from './confirm/Confirm';
 import AddCategory from './add-category/AddCategory';
+import ProductModal from './product-modal/ProductModal';
 
 const ModalDialog = props => {
 	const renderChild = template => {
@@ -15,6 +16,8 @@ const ModalDialog = props => {
 				return <Confirm {...props}/>;
 			case TEMPLATES.ADD_CATEGORY:
 				return <AddCategory {...props}/>;
+			case TEMPLATES.ADD_PRODUCT:
+				return <ProductModal {...props}/>;
 			default:
 				return null;
 		}
