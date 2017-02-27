@@ -1,30 +1,30 @@
 {
-  "name": "soshace",
-  "version": "0.1.0",
-  "private": true,
-  "devDependencies": {
-    "eslint": "^3.16.1",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-react": "^6.10.0",
-    "react-scripts": "0.9.0"
-  },
-  "dependencies": {
-    "axios": "^0.15.3",
-    "classnames": "^2.2.5",
-    "normalize.css": "^5.0.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-redux": "^5.0.3",
-    "react-router-dom": "^4.0.0-beta.6",
-    "redux": "^3.6.0",
-    "redux-devtools-extension": "^2.13.0",
-    "redux-thunk": "^2.2.0"
-  },
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon --exec babel-node -- ./server.js",
+    "client": "babel-node start-client.js"
   },
-  "proxy": "http://localhost:3001"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "mongodb": "^2.2.24",
+    "multer": "^1.3.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-preset-es2015": "^6.22.0",
+    "concurrently": "^3.3.0",
+    "eslint": "^3.16.1",
+    "eslint-plugin-react": "^6.10.0",
+    "nodemon": "^1.11.0"
+  }
 }
